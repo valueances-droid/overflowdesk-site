@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Voice comparison</title><meta name="robots" content="noindex">
+<style>body{font-family:system-ui,sans-serif;background:#f6f5f2;color:#1b1b1b;margin:0;padding:40px 20px}main{max-width:640px;margin:auto}h1{font-size:26px}p{color:#555;line-height:1.5}.g{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}.c{background:#fff;border:1px solid #e3e1dc;border-radius:14px;padding:22px}.c h2{margin:0 0 4px;font-size:19px}button{margin-top:14px;width:100%;padding:13px;border:0;border-radius:10px;background:#1b1b1b;color:#fff;font-size:15px;cursor:pointer}button.live{background:#c0392b}small{display:block;margin-top:10px;color:#777;min-height:1.2em}@media(max-width:560px){.g{grid-template-columns:1fr}}</style></head>
+<body><main><h1>Which voice sounds more human?</h1><p>Both run the same demo receptionist. Tap one, say a shop name like "Titan Air", and act like a customer whose AC quit tonight. Uses your microphone.</p>
+<div class="g"><div class="c"><h2>Voice A</h2><p>Female, warm and casual</p><button data-a="cc4d214b-bf74-4b00-9df0-9c3e564959d0">Talk to it</button><small></small></div>
+<div class="c"><h2>Voice B</h2><p>Male, relaxed and friendly</p><button data-a="29fe9d6d-e870-4f75-99ab-b3887ad16863">Talk to it</button><small></small></div></div></main>
+<script type="module">
+import Vapi from "https://esm.sh/@vapi-ai/web@3.0.0?bundle";
+const vapi=new Vapi("db8cbe0c-e94b-4b87-b064-1cf526370465");let cur=null;
+document.querySelectorAll("button").forEach(b=>b.onclick=async()=>{const s=b.nextElementSibling;
+ if(cur){vapi.stop();return}cur=b;b.disabled=true;s.textContent="Connecting…";
+ try{await vapi.start(b.dataset.a)}catch(e){cur=null;b.disabled=false;s.textContent="Couldn't start. Check mic permission."}});
+vapi.on("call-start",()=>{cur.disabled=false;cur.classList.add("live");cur.textContent="End call";cur.nextElementSibling.textContent="Live"});
+vapi.on("call-end",()=>{if(!cur)return;cur.classList.remove("live");cur.textContent="Talk to it";cur.nextElementSibling.textContent="Call ended";cur=null});
+vapi.on("error",e=>{console.error(e);if(cur){cur.disabled=false;cur.classList.remove("live");cur.textContent="Talk to it";cur.nextElementSibling.textContent="Something went wrong, try again";cur=null}});
+</script></body></html>
