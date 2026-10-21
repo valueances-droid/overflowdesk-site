@@ -287,7 +287,9 @@ footer{padding:64px 0 48px;font-size:14px;color:var(--mute)}
 .foot h4{font:500 12px/1.4 var(--mono);text-transform:uppercase;letter-spacing:.03em;color:var(--ink-2);margin-bottom:12px}
 .foot-b{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:48px;padding-top:24px;border-top:1px solid var(--line)}
 .foot-b nav{display:flex;flex-wrap:wrap;gap:4px 20px}
-.foot-b nav a,.foot-b span a{display:inline-block;padding:4px 0;min-height:30px;line-height:22px}
+.foot-b nav a,.foot-b span a,footer p a{display:inline-flex;align-items:center;padding:0;min-height:44px;line-height:22px}
+.show-s{display:none}
+@media (max-width:620px){.nav-links .hide-s{display:none}.nav-links .show-s{display:inline}.nav .brand,.nav-links a{white-space:nowrap;flex-shrink:0}.nav .nav-links{gap:10px!important;font-size:14px;margin-left:12px}.nav .nav-links .btn{padding:0 9px;font-size:13px}.nav .wrap{padding-left:16px;padding-right:16px}.nav .brand{font-size:16px;gap:8px;margin-right:10px}.nav-links .show-s{font-size:13px}}
 .foot-legal{display:flex;gap:20px}
 .stats.two{grid-template-columns:repeat(2,minmax(0,1fr))}
 .rec-l{font:500 10.5px/1 var(--mono);text-transform:uppercase;letter-spacing:.03em;color:#5E6166}
@@ -393,7 +395,7 @@ footer{padding:64px 0 48px;font-size:14px;color:var(--mute)}
     <a class="hide-m" href="#how">How it works</a>
     <a class="hide-m" href="#call">Sample call</a>
     <a class="hide-s" href="#pricing">Pricing</a>
-    <a href="tel:+14356103083" aria-label="Hear it for yourself: call the demo line at (435) 610-3083.">Demo line: (435) 610-3083</a>
+    <a href="tel:+14356103083" aria-label="Call the demo line at (435) 610-3083. Our AI receptionist will answer."><span class="hide-s">Demo line: (435) 610-3083</span><span class="show-s">Call demo</span></a>
     <a class="btn btn-ink" href="https://cal.com/overflowdesk/15-minute-walkthrough">Book a walkthrough</a>
   </nav>
 </div></header>
@@ -583,7 +585,7 @@ footer{padding:64px 0 48px;font-size:14px;color:var(--mute)}
 <section class="rule" id="faq"><div class="wrap split">
   <div class="sticky"><p class="mono" style="color:var(--mute);margin-bottom:20px">FAQ</p><h2 class="h2">Questions owners ask.</h2></div>
   <div class="faq">
-    <details><summary>Will callers know it's not a person?<svg class="icon"><use href="#i-plus"/></svg></summary><p>It answers with your company name like any receptionist and doesn't announce that it's automated. If a caller sincerely asks, it tells them honestly that it's the shop's virtual receptionist. And and if a caller would rather talk to a person, it takes their info and your team calls them back.</p></details>
+    <details><summary>Will callers know it's not a person?<svg class="icon"><use href="#i-plus"/></svg></summary><p>Yes. It's an AI receptionist, and it never claims to be a person. It answers with your company name and tells callers it's an AI assistant. If a caller would rather talk to a person, it takes their info and your team calls them back.</p></details>
     <details><summary>Do I have to change my number?<svg class="icon"><use href="#i-plus"/></svg></summary><p>No. You keep your number and your carrier. Only calls you don't answer get forwarded. Turn the forwarding off and everything is back to how it was.</p></details>
     <details><summary>What about real emergencies?<svg class="icon"><use href="#i-plus"/></svg></summary><p>You tell us what counts as an emergency for your shop. Those calls get transferred straight to the on-call phone. If someone reports a gas smell, it tells them to leave the house and call the gas company or 911 first.</p></details>
     <details><summary>Will it quote prices?<svg class="icon"><use href="#i-plus"/></svg></summary><p>Only the ones you give us, like a diagnostic or trip fee. It won't guess at repair or replacement prices. Those stay with your techs.</p></details>
